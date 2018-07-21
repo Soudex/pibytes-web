@@ -10,11 +10,12 @@
         {
             case "demo":
                 $time = time();
-                $output = shell_exec("echo $time :: $value >> /var/www/timestemp.html");
+                $output = shell_exec("echo $time :: $value >> /var/www/html/timestemp.html");
                 break;
 
             case "green_switch":
                 $output = shell_exec("../scripts/LEDW.sh T");
+
                 break;
 
             case "red_switch":
@@ -25,16 +26,27 @@
                 $output = shell_exec("../scripts/LEDW.sh T");
                 break;
 
-            case "demo":
+            case "blue_switch":
                 $output = shell_exec("../scripts/LEDW.sh T");
                 break;
 
-            case "demo":
+            case "yellow_switch":
                 $output = shell_exec("../scripts/LEDW.sh T");
                 break;
-
+            default:
+                echo json_encode(array('error' => true));
+                die();
+                break;
         } 
 
+        _log($output);
+       
         echo json_encode(array('success' => true));
+    }
+
+    function _log($output)
+    {
+        $time = time();
+        shell_exec("echo <b>$time</b> :: <span style='color:blue;'>$output</span> >> /var/www/html/log.html");
     }
 ?>
