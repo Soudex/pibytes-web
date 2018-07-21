@@ -22,6 +22,7 @@
                 <input class="button" type="submit"  value="Weißer Button" command="white_switch">
                 <input class="button" type="submit"  value="Blauer Button" command="blue_switch">
                 <input class="button" type="submit"  value="Gelber Button" command="yellow_switch">
+                <input class="button" type="submit"  value="Off Button" command="off">
             </div>
     </section>
 </BODY>

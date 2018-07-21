@@ -2,6 +2,8 @@
     $cmd = $_POST['command'];
     $value = $_POST['value'];
 
+    $log = true;
+
     unset($_POST);
 
     if($cmd)
@@ -10,44 +12,54 @@
         {
             case "demo":
                 $time = time();
-                $output = shell_exec("echo $time :: $value >> /var/www/html/timestemp.html");
+                _log(shell_exec("echo $time :: $value >> /var/www/html/timestemp.html"));
                 break;
 
             case "green_switch":
-                $output = exec("var/www/scripts/LEDW.sh T 3");
+                _log(exec("/var/www/scripts/LED.sh T 3"));
                 break;
 
             case "red_switch":
-                $output = exec("var/www/scripts/LEDW.sh T 27");
+                _log(exec("/var/www/scripts/LED.sh T 27"));
                 break;
 
             case "white_switch":
-                $output = exec("var/www/scripts/LEDW.sh T 2");
+                _log(exec("/var/www/scripts/LED.sh T 2"));
                 break;
 
             case "blue_switch":
-                $output = exec("var/www/scripts/LEDW.sh T 17");
+                _log(exec("/var/www/scripts/LED.sh T 17"));
                 break;
 
             case "yellow_switch":
-                $output = exec("var/www/scripts/LEDW.sh T 4");
+                _log(exec("/var/www/scripts/LED.sh T 4"));
+                break;
+
+            case "off":
+                _log(exec("/var/www/scripts/LED.sh 0 3"));
+                _log(exec("/var/www/scripts/LED.sh 0 27"));
+                _log(exec("/var/www/scripts/LED.sh 0 2"));
+                _log(exec("/var/www/scripts/LED.sh 0 17"));
+                _log(exec("/var/www/scripts/LED.sh 0 4"));
+
                 break;
             default:
                 echo json_encode(array('error' => true));
                 die();
                 break;
         } 
-
-        _log($output);
        
-        echo json_encode(array('success' => true, 'log' => $output));
+        echo json_encode(array('success' => true));
     }
 
     function _log($output)
     {
-        $time = time();
-        $whoami = shell_exec("whoami");
-        $pwd = shell_exec("pwd");
-        shell_exec("echo $time :: $whoami :: $pwd :: $output </br> >> /var/www/html/log.html");
+        if($log)
+        {        
+            $time = time();
+            $whoami = shell_exec("whoami");
+            $pwd = shell_exec("pwd");
+            shell_exec("echo $time :: $output >> /var/www/html/log.html");
+        }
     }
 ?>
