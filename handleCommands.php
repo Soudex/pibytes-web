@@ -15,7 +15,6 @@
 
             case "green_switch":
                 $output = shell_exec("../scripts/LEDW.sh T");
-
                 break;
 
             case "red_switch":
@@ -41,7 +40,7 @@
 
         _log($output);
        
-        echo json_encode(array('success' => true));
+        echo json_encode(array('success' => true, 'log' => $output));
     }
 
     function _log($output)
