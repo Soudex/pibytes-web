@@ -14,23 +14,23 @@
                 break;
 
             case "green_switch":
-                $output = exec("var/www/scripts/LEDW.sh T");
+                $output = exec("var/www/scripts/LEDW.sh T 3");
                 break;
 
             case "red_switch":
-                $output = exec("var/www/scripts/LEDW.sh T");
+                $output = exec("var/www/scripts/LEDW.sh T 27");
                 break;
 
             case "white_switch":
-                $output = exec("var/www/scripts/LEDW.sh T");
+                $output = exec("var/www/scripts/LEDW.sh T 2");
                 break;
 
             case "blue_switch":
-                $output = exec("var/www/scripts/LEDW.sh T");
+                $output = exec("var/www/scripts/LEDW.sh T 17");
                 break;
 
             case "yellow_switch":
-                $output = exec("var/www/scripts/LEDW.sh T");
+                $output = exec("var/www/scripts/LEDW.sh T 4");
                 break;
             default:
                 echo json_encode(array('error' => true));
