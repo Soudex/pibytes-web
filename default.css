@@ -1,0 +1,75 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 20px;
+}
+
+section
+{
+    box-sizing: border-box;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-bottom: 10vh;
+    min-height: 70vh;
+    width: 60vw;
+    min-width: 224px;
+    border: 2px solid #FF6562;
+}
+
+header
+{
+    height: 8vh;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center; 
+}
+
+#logo
+{
+    background: url("images/pi_bytes.jpg") no-repeat;
+    background-size: contain;
+    width: 160px;
+    height: auto;
+}
+
+body
+{
+    background-color: #49B2FF;
+}
+
+.flexWrapper
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center;
+}
+
+.button
+{
+    border-radius: 4px;
+    border: 2px solid #FF6562;
+    background-color: grey;
+    min-width: 200px;
+    min-height: 60px;
+    -moz-hyphens: auto;
+    -o-hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto; 
+    margin: 10px;
+}
+
+.button:hover
+{
+    cursor: pointer;
+}
+
+.button:active
+{
+    background-color: green;
+}
