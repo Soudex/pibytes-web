@@ -8,7 +8,7 @@ $(document).ready(function()
             url: 'handleCommands.php', 
             data: 
             {
-                command: "demo",
+                command: $(this).attr('command'),
                 value: "web"
             }
         }).done(function(response)

@@ -16,21 +16,13 @@
     </HEADER>
     <section>
             <div class="flexWrapper">
-                <input class="button" type="submit" name="demo" value="demo">
-                <input class="button" type="submit" name="demo" value="demo">
-                <input class="button" type="submit" name="demo" value="demo">
-                <input class="button" type="submit" name="demo" value="demo">
-                <input class="button" type="submit" name="demo" value="demo">
-                <input class="button" type="submit" name="demo" value="demo">
-                <input class="button" type="submit" name="demo" value="demo">
-                <input class="button" type="submit" name="demo" value="demo">
-                <input class="button" type="submit" name="demo" value="demo">
-                <input class="button" type="submit" name="demo" value="demo">
-                <input class="button" type="submit" name="demo" value="demo">
-            
-                <input class="button" type="hidden" value="true" name="isWeb">
+                <input class="button" type="submit"  value="Demo" command="demo">  
+                <input class="button" type="submit"  value="Grüner Button" command="green_switch">
+                <input class="button" type="submit"  value="Roter Button" command="red_switch">
+                <input class="button" type="submit"  value="Weißer Button" command="white_switch">
+                <input class="button" type="submit"  value="Blauer Button" command="blue_switch">
+                <input class="button" type="submit"  value="Gelber Button" command="yellow_switch">
             </div>
-
     </section>
 </BODY>
 </HTML>
