@@ -14,23 +14,23 @@
                 break;
 
             case "green_switch":
-                $output = shell_exec("../scripts/LEDW.sh T");
+                $output = exec("../scripts/LEDW.sh T");
                 break;
 
             case "red_switch":
-                $output = shell_exec("../scripts/LEDW.sh T");
+                $output = exec("../scripts/LEDW.sh T");
                 break;
 
             case "white_switch":
-                $output = shell_exec("../scripts/LEDW.sh T");
+                $output = exec("../scripts/LEDW.sh T");
                 break;
 
             case "blue_switch":
-                $output = shell_exec("../scripts/LEDW.sh T");
+                $output = exec("../scripts/LEDW.sh T");
                 break;
 
             case "yellow_switch":
-                $output = shell_exec("../scripts/LEDW.sh T");
+                $output = exec("../scripts/LEDW.sh T");
                 break;
             default:
                 echo json_encode(array('error' => true));
@@ -46,6 +46,8 @@
     function _log($output)
     {
         $time = time();
-        shell_exec("echo <b>$time</b> :: <span style='color:blue;'>$output</span> >> /var/www/html/log.html");
+        $whoami = shell_exec("whoami");
+        $pwd = shell_exec("pwd");
+        shell_exec("echo $time :: $whoami :: $pwd :: $output >> /var/www/html/log.html");
     }
 ?>
