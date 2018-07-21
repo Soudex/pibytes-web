@@ -1,6 +1,6 @@
 <?php 
     $cmd = $_POST['command'];
-    $value = $_POST['value'];
+    $value = (!empty($_POST['value'])) ? $_POST['value'] : null;
 
     $log = true;
 
@@ -35,14 +35,30 @@
                 _log(exec("/var/www/scripts/LED.sh T 4"));
                 break;
 
+            case "on":
+                _log(exec("/var/www/scripts/LED.sh 1 3"));
+                _log(exec("/var/www/scripts/LED.sh 1 27"));
+                _log(exec("/var/www/scripts/LED.sh 1 2"));
+                _log(exec("/var/www/scripts/LED.sh 1 17"));
+                _log(exec("/var/www/scripts/LED.sh 1 4"));
+                break;
+
             case "off":
                 _log(exec("/var/www/scripts/LED.sh 0 3"));
                 _log(exec("/var/www/scripts/LED.sh 0 27"));
                 _log(exec("/var/www/scripts/LED.sh 0 2"));
                 _log(exec("/var/www/scripts/LED.sh 0 17"));
                 _log(exec("/var/www/scripts/LED.sh 0 4"));
-
                 break;
+
+            case "toggle":
+                _log(exec("/var/www/scripts/LED.sh T 3"));
+                _log(exec("/var/www/scripts/LED.sh T 27"));
+                _log(exec("/var/www/scripts/LED.sh T 2"));
+                _log(exec("/var/www/scripts/LED.sh T 17"));
+                _log(exec("/var/www/scripts/LED.sh T 4"));
+            break;
+
             default:
                 echo json_encode(array('error' => true));
                 die();

@@ -16,6 +16,7 @@ section
     width: 60vw;
     min-width: 224px;
     border: 2px solid #FF6562;
+    background-color: #49B2FF;
 }
 
 header
@@ -38,7 +39,7 @@ header
 
 body
 {
-    background-color: #49B2FF;
+    background-color: #fffff0;
 }
 
 .flexWrapper
@@ -53,7 +54,7 @@ body
 {
     border-radius: 4px;
     border: 2px solid #FF6562;
-    background-color: grey;
+    background-color: rgb(160,160,160);
     min-width: 200px;
     min-height: 60px;
     -moz-hyphens: auto;
