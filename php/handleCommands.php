@@ -2,7 +2,7 @@
     $cmd = $_POST['command'];
     $value = (!empty($_POST['value'])) ? $_POST['value'] : null;
 
-    $led = array("2","3","22","17","27");
+    $led = array("2","3","14","17","27");
 
     $white = 2;
     $green = 3;
@@ -71,6 +71,11 @@
             case "random_led":
                 $randomLED = $led[rand(0,4)];
                 exec("/var/www/scripts/LED.sh T $randomLED");
+                break;
+            
+            case "start_luft_filter":
+                require_once('inccludes/config.php');
+                
                 break;
 
             default:

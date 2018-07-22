@@ -5,7 +5,7 @@ $(document).ready(function()
         $.ajax(
         {
             type: 'POST',
-            url: 'handleCommands.php', 
+            url: 'php/handleCommands.php', 
             data: 
             {
                 command: $(this).attr('command'),
