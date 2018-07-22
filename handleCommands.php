@@ -22,56 +22,55 @@
                 break;
 
             case 'init':
-                _log(exec("/var/www/scripts/initio.sh"));
+                exec("/var/www/scripts/initio.sh");
                 break;
             case "green_switch":
-                _log(exec("/var/www/scripts/LED.sh T $green"));
+                exec("/var/www/scripts/LED.sh T $green");
                 break;
 
             case "red_switch":
-                _log(exec("/var/www/scripts/LED.sh T $red"));
+                exec("/var/www/scripts/LED.sh T $red");
                 break;
 
             case "white_switch":
-                _log(exec("/var/www/scripts/LED.sh T $white"));
+                exec("/var/www/scripts/LED.sh T $white");
                 break;
 
             case "blue_switch":
-                _log(exec("/var/www/scripts/LED.sh T $blue"));
+                exec("/var/www/scripts/LED.sh T $blue");
                 break;
 
             case "yellow_switch":
-                _log(exec("/var/www/scripts/LED.sh T $yellow"));
+                exec("/var/www/scripts/LED.sh T $yellow");
                 break;
 
             case "on":
-                _log(exec("/var/www/scripts/LED.sh 1 $green"));
-                _log(exec("/var/www/scripts/LED.sh 1 $red"));
-                _log(exec("/var/www/scripts/LED.sh 1 $white"));
-                _log(exec("/var/www/scripts/LED.sh 1 $blue"));
-                _log(exec("/var/www/scripts/LED.sh 1 $yellow"));
+                exec("/var/www/scripts/LED.sh 1 $green");
+                exec("/var/www/scripts/LED.sh 1 $red");
+                exec("/var/www/scripts/LED.sh 1 $white");
+                exec("/var/www/scripts/LED.sh 1 $blue");
+                exec("/var/www/scripts/LED.sh 1 $yellow");
                 break;
 
             case "off":
-                _log(exec("/var/www/scripts/LED.sh 0 $green"));
-                _log(exec("/var/www/scripts/LED.sh 0 $red"));
-                _log(exec("/var/www/scripts/LED.sh 0 $white"));
-                _log(exec("/var/www/scripts/LED.sh 0 $blue"));
-                _log(exec("/var/www/scripts/LED.sh 0 $yellow"));
+                exec("/var/www/scripts/LED.sh 0 $green");
+                exec("/var/www/scripts/LED.sh 0 $red");
+                exec("/var/www/scripts/LED.sh 0 $white");
+                exec("/var/www/scripts/LED.sh 0 $blue");
+                exec("/var/www/scripts/LED.sh 0 $yellow");
                 break;
 
             case "toggle":
-                _log(exec("/var/www/scripts/LED.sh T $green"));
-                _log(exec("/var/www/scripts/LED.sh T $red"));
-                _log(exec("/var/www/scripts/LED.sh T $white"));
-                _log(exec("/var/www/scripts/LED.sh T $blue"));
-                _log(exec("/var/www/scripts/LED.sh T $yellow"));
+                exec("/var/www/scripts/LED.sh T $green");
+                exec("/var/www/scripts/LED.sh T $red");
+                exec("/var/www/scripts/LED.sh T $white");
+                exec("/var/www/scripts/LED.sh T $blue");
+                exec("/var/www/scripts/LED.sh T $yellow");
             break;
             
             case "random_led":
                 $randomLED = $led[rand(0,4)];
-             
-                _log(exec("/var/www/scripts/LED.sh T $randomLED"));
+                exec("/var/www/scripts/LED.sh T $randomLED");
                 break;
 
             default:
@@ -79,6 +78,9 @@
                 die();
                 break;
         } 
+
+
+        _log($cmd);
        
         echo json_encode(array('success' => true));
     }
@@ -86,7 +88,7 @@
     function _log($output)
     {
         $time = time();
-        $html = "<b>".$time."</b> :: ".$output."</br>";
-        exec("echo $html >> log.html ");
+        $output = ($output) ? $output : "";
+        exec("echo '<b>$time</b> :: $output </br>' >> log.html");
     }
 ?>
