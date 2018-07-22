@@ -1,3 +1,3 @@
 <?php
-    echo exec("/var/www/scripts/sensonr.py");
+    echo exec("./var/www/scripts/Adafruit_Python_DHT/examples/DoHack.py");
 ?>
